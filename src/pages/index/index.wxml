@@ -1,0 +1,118 @@
+<view class="page-body">
+    <view class="navbar-box" style="height: {{navigationBarHeight}}px">
+        <view class="navbar-wrap {{className}}">
+            <view class="status-bar" style="height: {{statusBarHeight}}px"></view>
+            <view class="navbar-content">
+                <view class="search" bindtap="searchTap"></view>
+                <view class="tit">谷果</view>
+            </view>
+        </view>
+    </view>
+    <view class="search-wrap" style="top:{{navigationBarHeight}}px" hidden="{{searchHidden}}">
+        <view class="search-box-wrap">
+            <view class="search-box">
+                <view class="icon-search"></view>
+                <input type="text" placeholder-class="ipt-placeholder" bindconfirm="searchInput" confirm-type="search" value="{{searchValue}}"></input>
+                <view class="icon-delete" hidden="{{deleteHidden}}" bindtap="deleteInput">×</view>
+            </view>
+            <view class="cancle" bindtap="searchCancle">取消</view>
+        </view>
+        <scroll-view class="suggest-wrap" scroll-y="true">
+            <view wx:if="{{search.result.length}}">
+                <view class="suggest-item" hover-class="hover" wx:for="{{search.result}}" wx:key="*this" bindtap="searchItemTap" data-detail="{{item}}">
+                    <image src="{{item.imgSrc}}"></image>
+                    <view class="name">{{item.name}}</view>
+                    <view class="price">￥{{item.price}}</view>
+                </view>
+            </view>
+            <view class="suggest-empty" wx:if="{{search && search.result && search.result.length===0}}">
+                暂无此商品
+            </view>
+            <view class="history-wrap" wx:if="{{historyList.length}}">
+                <view class="tit">
+                    <view>历史记录</view>
+                    <view class="delete" bindtap="deleteHistory">删除</view>
+                </view>
+                <view class="list-wrap">
+                    <view class="item" wx:for="{{historyList}}" wx:key="*this" bindtap="historyTap" data-detail="{{item}}">
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
+            <view class="history-wrap" wx:if="{{recommendList.length}}" hidden="{{search.result.length}}">
+                <view class="tit">热门推荐</view>
+                <view class="list-wrap">
+                    <view class="item" wx:for="{{recommendList}}" wx:key="*this" bindtap="historyTap" data-detail="{{item}}">
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <block wx:if="{{swiperList && swiperList.length}}">
+        <swiper indicator-dots autoplay circular>
+            <block wx:for="{{swiperList}}" wx:key="*this">
+                <swiper-item bindtap="swiperTap" data-swiper="{{item}}">
+                    <image src="{{item.imgSrc}}" class="banner-img"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </block>
+    <view class="banner-wrap" wx:if="{{banner}}" bindtap="bannerTap">
+        <image src="{{banner.imgSrc}}"></image>
+    </view>
+    <view class="column-wrap">
+        <view class="sidebar-wrap">
+            <scroll-view scroll-y="true" scroll-into-view="{{id}}">
+                <view wx:for="{{cateList}}" wx:key="*this" class="sidebar-item {{item.id === curCate.id ?'cur':''}}" data-cur-cate="{{item}}" bindtap="cateTap" id="{{item.isSolution?'soluntionCate':''}}">
+                    {{item.cateName}}
+                </view>
+            </scroll-view>
+        </view>
+        <scroll-view class="con-scroll-wrap" scroll-y="true" bindscrolltolower="loadNextPage">
+            <view class="con-wrap">
+                <view class="con">
+                    <view class="con-tit">{{curCate.cateName}}</view>
+                    <view>
+                        <block wx:if="{{productList.length}}">
+                            <view wx:for="{{productList}}" class="item" wx:key="id" data-detail="{{item}}" bindtap="productTap">
+                                <image src="{{item.imgSrc}}" class="item-img" lazy-load></image>
+                                <view class="item-detail">
+                                    <view class="name">{{item.name}}</view>
+                                    <view class="label-wrap">
+                                        <view wx:for="{{item.label}}" wx:key="index" wx:for-item="label">
+                                            {{label}}
+                                        </view>
+                                    </view>
+                                    <view class="price">
+                                        <view>￥{{item.price}}</view>
+                                        <view class="del" wx:if="{{item.price !== item.originalPrice}}">
+                                            ￥{{item.originalPrice}}
+                                        </view>
+                                        <view class="add" catchtap="itemAddCar" data-car-item="{{item}}">
+                                            <text>+</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view wx:elif="{{solutionList.length}}" class="solution-list-wrap">
+                            <navigator wx:for="{{solutionList}}" wx:for-item="solution" wx:key="*this" class="solution-item" url="/pages/solution/solution?id={{solution.id}}">
+                                <view class="name">{{solution.name}}</view>
+                                <view class="more">点击查看 ></view>
+                                <image src="{{solution.imgSrc}}" class="img"></image>
+                            </navigator>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nomore" wx:if="{{(productList.length || solutionList.length) && hasNext}}">
+                <view class="loading"></view>
+            </view>
+            <view class="nomore" wx:if="{{(productList.length || solutionList.length) && !hasNext}}">
+                没有更多
+            </view>
+        </scroll-view>
+    </view>
+    <detail detail="{{detail}}"></detail>
+</view>

@@ -1,0 +1,33 @@
+<view class="page-body">
+    <view class="navbar-box" style="height: {{navigationBarHeight}}px">
+        <view class="navbar-wrap {{className}}">
+            <view class="status-bar" style="height: {{statusBarHeight}}px"></view>
+            <view class="navbar-content">
+                <navigator open-type="switchTab" url="/pages/index/index" class="back" hover-class="none"></navigator>
+                <view class="tit">下单成功</view>
+            </view>
+        </view>
+    </view>
+    <view class="column success-wrap">
+        <view>您已成功下单！</view>
+        <view>客服会在30分钟内联系您确认需求及配送时间！</view>
+        <view>如需联系客服，请在【我的】中查看联系方式</view>
+    </view>
+    <view class="column order-list">
+        <view class="column-tit">订单编号：{{orderId}}</view>
+        <view class="list-wrap">
+            <view class="item" wx:for="{{list}}">
+                <image src="{{item.imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.name}}</view>
+                </view>
+                <view class="num">× {{item.num}}</view>
+                <view class="price">￥{{item.price}}</view>
+            </view>
+        </view>
+        <view class="total">
+            <text>小计</text>
+            <text class="price">￥{{price}}</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="tool-wrap">
+    <view class="less" bindtap="less">-</view>
+    <view class="num">{{num}}</view>
+    <view class="add" bindtap="add">+</view>
+</view>

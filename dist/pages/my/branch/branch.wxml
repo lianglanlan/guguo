@@ -1,0 +1,23 @@
+<view class="page-body">
+    <view class="avatar-wrap">
+        <view class="avatar-box">
+            <image class="avatar" src="{{avatarUrl}}"></image>
+        </view>
+    </view>
+    <view class="column" wx:for="{{list}}" wx:key="id">
+        <view class="my-item">
+            <view class="name">用户：{{item.realname}}</view>
+            <view class="right">
+                <navigator class="btn-primary" url="/pages/my/branch/detail/detail?id={{item.id}}">
+                    查看详情
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="column empty-box" wx:if="{{!list.length}}">
+        <view class="empty-wrap">
+            <image src="https://xcx2k.sogoucdn.com/images/default/empty.png"></image>
+            <view class="note">您还没有分销记录哦~</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="page-body">
+    <view class="column">
+        <view class="item">
+            <view class="tit">后付费-月结</view>
+            <view class="date">2020-19-11</view>
+        </view>
+        <view class="item">
+            <view class="tit">后付费-月结</view>
+            <view class="date">2020-19-11</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,48 @@
+<view class="page-body">
+    <view class="column order-list" wx:for="{{list}}" wx:key="orderId">
+        <view class="column-tit">
+            <view>订单编号：{{item.orderId}}</view>
+            <view wx:if="{{item.status === 0}}">待发货</view>
+            <view wx:if="{{item.status === 1}}">已完成</view>
+            <view wx:if="{{item.status === 2}}">取消中</view>
+            <view wx:if="{{item.status === 3}}">已取消</view>
+            <view wx:if="{{item.status === 4}}">已支付</view>
+        </view>
+        <view class="list-wrap">
+            <view class="item">
+                <image src="{{item.item[0].imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.item[0].name}}</view>
+                </view>
+                <view class="num">× {{item.item[0].num}}</view>
+            </view>
+        </view>
+        <view class="total">
+            <view class="time">{{item.savetime}}</view>
+            <view class="total-num">共{{item.totalNum}}件商品</view>
+            <view class="total-price-wrap">
+                <text>合计:￥{{item.totalPrice}}</text>
+            </view>
+        </view>
+        <view class="column-footer">
+            <view class="btn-plain btn-cancle" wx:if="{{item.status === 0}}" bindtap="orderCancle" data-order-id="{{item.orderId}}">
+                取消订单
+            </view>
+            <view class="btn-plain btn-cancle" wx:if="{{item.status === 1}}" bindtap="orderAgain" data-order-again="{{item}}">
+                再来一单
+            </view>
+            <navigator url="/pages/order/detail/detail" class="btn-primary btn-cancle" bindtap="detail" data-order-detail="{{item}}">
+                查看详情
+            </navigator>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}"></view>
+    <view class="nomore" wx:if="{{hasNext === false}}">没有更多</view>
+    <view class="empty-wrap" wx:if="{{!loading && list.length===0}}">
+        <image src="https://xcx2k.sogoucdn.com/images/default/empty.png"></image>
+        <view class="note">您还没下过单哦~</view>
+        <navigator open-type="switchTab" url="/pages/index/index" class="btn-primary">
+            去点单
+        </navigator>
+    </view>
+</view>

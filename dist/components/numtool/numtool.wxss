@@ -1,0 +1,31 @@
+.tool-wrap {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+.less {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1rpx solid #ccc;
+  color: #ccc;
+  text-align: center;
+  line-height: 45rpx;
+}
+
+.num {
+  width: 70rpx;
+  text-align: center;
+}
+
+.add {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #d6ab7e;
+  text-align: center;
+  line-height: 45rpx;
+}

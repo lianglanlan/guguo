@@ -1,0 +1,18 @@
+<view class="page-body">
+    <image src="{{solution.topImgSrc}}" class="banner-image"></image>
+    <view class="list-wrap">
+        <navigator class="item" wx:for="{{solutionItemList}}" wx:key="*this" url="/pages/solution/detail/detail?id={{item.id}}">
+            <image src="{{item.imgSrc}}"></image>
+            <view class="detail">
+                <view class="tit">{{item.name}}</view>
+                <view class="desc">{{item.desc}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="nomore" wx:if="{{(solutionItemList.length || solutionItemList.length) && hasNext}}">
+        <view class="loading"></view>
+    </view>
+    <view class="nomore" wx:if="{{(solutionItemList.length || solutionItemList.length) && !hasNext}}">
+        没有更多
+    </view>
+</view>

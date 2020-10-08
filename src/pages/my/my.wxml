@@ -1,0 +1,36 @@
+<view class="page-body">
+    <view class="avatar-wrap">
+        <view class="avatar-box">
+            <image class="avatar" src="{{avatarUrl}}"></image>
+        </view>
+    </view>
+    <navigator hover-class="none" class="column" url="/pages/my/branch/branch">
+        <view class="my-item">
+            <view class="name">我的分销</view>
+            <view class="right">
+                <view class="icon-arrow">></view>
+            </view>
+        </view>
+    </navigator>
+    <view class="column">
+        <view class="my-item">
+            <view class="name">结算周期</view>
+            <view class="right">
+                <view>{{charge.chargeName}}</view>
+                <!-- <view class="icon-arrow">></view> -->
+            </view>
+        </view>
+    </view>
+    <view class="column">
+        <navigator class="my-item" hover-class="none" url="/pages/my/service/service">
+            <view class="name">客户服务</view>
+            <view class="right">
+                <view class="icon-arrow">></view>
+            </view>
+        </navigator>
+        <view class="my-item">
+            <view class="name">我的客服专员</view>
+            <view class="right">{{service.realname}} {{service.phone}}</view>
+        </view>
+    </view>
+</view>

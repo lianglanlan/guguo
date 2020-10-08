@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 40rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+}
+
+.item .tit {
+  color: #222;
+  font-size: 30rpx;
+}
+
+.item .date {
+  font-size: 26rpx;
+  color: #ababab;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}

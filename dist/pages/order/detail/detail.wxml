@@ -1,0 +1,22 @@
+<view class="page-body">
+    <view class="column order-list">
+        <view class="column-tit">
+            <text>订单编号：{{detail.orderId}}</text>
+            <text class="time">{{detail.savetime}}</text>
+        </view>
+        <view class="list-wrap">
+            <view class="item" wx:for="{{detail.item}}" wx:key="productId">
+                <image src="{{item.imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.name}}</view>
+                </view>
+                <view class="num">× {{item.num}}</view>
+                <view class="price">￥{{item.price}}</view>
+            </view>
+        </view>
+        <view class="total">
+            <text>小计</text>
+            <text class="price">￥{{detail.totalPrice}}</text>
+        </view>
+    </view>
+</view>

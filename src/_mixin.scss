@@ -1,0 +1,89 @@
+$theamColor: #d6ab7e;
+$black:#6c6d6c;
+$gray: #ccc;
+$LegacyIE: false !default;
+
+@mixin line-clip($line, $inline: 0) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    @if ($line == 1) {
+        white-space: nowrap;
+        @if ($inline == 1) {
+            // 行内格式化上下文可能需要用 vertical-align 来调整
+            display: inline-block;
+            @if ($LegacyIE) {
+                *display: inline;
+                *zoom: 1;
+            }
+        }
+        @else {
+            display: block;
+        }
+    }
+    @else {
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        @if ($inline == 1) {
+            display: inline-block;
+            @if ($LegacyIE) {
+                *display: inline;
+                *zoom: 1;
+            }
+            display: -webkit-inline-box;
+        }
+        @else {
+            display: block;
+            display: -webkit-box;
+        }
+    }
+}
+
+%horizontal-center {
+    position: absolute;
+    left: 50%;
+    @if ($LegacyIE) {
+        margin-left: -50%;
+    }
+    @else {
+        transform: translateX(-50%);
+    }
+}
+
+%vertical-center {
+    position: absolute;
+    top: 50%;
+    @if ($LegacyIE) {
+        margin-top: -50%;
+    }
+    @else {
+        transform: translateY(-50%);
+    }
+}
+
+%horizontal-vertical-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @if ($LegacyIE) {
+        margin-top: -50%;
+        margin-left: -50%;
+    }
+    @else {
+        transform: translate(-50%, -50%);
+    }
+}
+//参数'x'表示水平居中，'y'为垂直居中，默认留空为水平垂直居中
+//如果需要兼容旧版IE，则必须指定元素高宽
+//水平居中示例：@include position-center('x')
+@mixin position-center($orientation: null) {
+    @if ($orientation == 'x') {
+        @extend %horizontal-center;
+    }
+    @else if ($orientation == 'y') {
+        @extend %vertical-center;
+    }
+    @else {
+        @extend %horizontal-vertical-center;
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "numtool": "/components/numtool/numtool",
+        "detail": "/components/detail/detail"
+    },
+    "navigationStyle": "custom"
+}

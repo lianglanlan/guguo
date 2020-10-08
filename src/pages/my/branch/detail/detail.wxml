@@ -1,0 +1,47 @@
+<view class="page-body">
+    <view class="column">
+        <form catchsubmit="formSubmit">
+            <view class="time-wrap">
+                <view class="tit">时间:</view>
+                <view class="picker-wrap">
+                    <picker mode="date" class="btn-plain" bindchange="beginTimeChange">
+                        <view>
+                            {{beginTime||'开始时间'}}
+                            <text class="icon-arrow">▼</text>
+                        </view>
+                    </picker>
+                    <picker mode="date" class="btn-plain" bindchange="endTimeChange">
+                        <!-- {{date}}结束 -->
+                        <view>
+                            {{endTime||'结束时间'}}
+                            <text class="icon-arrow">▼</text>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </form>
+    </view>
+    <view class="column {{item.status===3?'disabled':''}}" wx:for="{{list}}" wx:key="orderId">
+        <view class="column-tit">
+            <view>订单编号：{{item.orderId}}</view>
+            <view wx:if="{{item.status === 0}}">未结算</view>
+            <view wx:if="{{item.status === 1}}">已支付</view>
+        </view>
+        <view class="num-wrap">
+            <view class="left">
+                <view class="total">总计:￥{{item.totalPrice}}</view>
+                <view class="date">{{item.savetime}}</view>
+            </view>
+            <view class="right">
+                分成金额：
+                <text class="num">￥{{item.subPrice}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}"></view>
+    <view class="nomore" wx:if="{{hasNext === false}}">没有更多</view>
+    <view class="empty-wrap" wx:if="{{!loading && list.length===0}}">
+        <image src="https://xcx2k.sogoucdn.com/images/default/empty.png"></image>
+        <view class="note">此段时间没有订单哦~</view>
+    </view>
+</view>

@@ -1,0 +1,41 @@
+<view class="overlay" hidden="{{!detail}}">
+    <view class="pop-box">
+        <view class="pop-swiper-box">
+            <swiper bindchange="detaiSwiperChange">
+                <block wx:for="{{detail.swiperImg}}" wx:key="*this">
+                    <swiper-item>
+                        <image src="{{item}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="pop-swiper-num">
+                {{detail.curSwiperIndex || 1}}/{{detail.swiperImg.length}}
+            </view>
+        </view>
+        <view class="icon-close" bindtap="detailClose">×</view>
+        <scroll-view scroll-y="true">
+            <view class="pop-scroll-box">
+                <view class="name">{{detail.name}}</view>
+                <view class="label-wrap">
+                    <view wx:for="{{detail.label}}" wx:key="*this" wx:for-item="label">
+                        {{label}}
+                    </view>
+                </view>
+                <view class="sub-tit">产品描述</view>
+                <view class="desc">{{detail.desc}}</view>
+            </view>
+        </scroll-view>
+        <view class="pop-price-wrap">
+            <view class="pop-price">
+                <view class="price">
+                    <view>￥{{detail.price}}</view>
+                    <view wx:if="{{detail.price!==detail.originalPrice}}" class="del">
+                        ￥{{detail.originalPrice}}
+                    </view>
+                </view>
+                <numtool bindnumadd="numadd" bindnumless="numless" num="{{detail.num || 1}}"></numtool>
+            </view>
+            <view class="pop-btn" bindtap="detailAddCar">加入购物袋</view>
+        </view>
+    </view>
+</view>

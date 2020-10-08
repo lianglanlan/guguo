@@ -1,0 +1,190 @@
+@import '../../mixin';
+
+.bg {
+    height: 90rpx;
+    border-radius: 375px / 50px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: $theamColor;
+}
+
+.empty-box {
+    position: relative;
+    height: 250rpx;
+    margin-top: -80rpx;
+    overflow: hidden;
+}
+
+.empty-wrap {
+    font-size: 26rpx;
+
+    image {
+        width: 150rpx;
+        height: 150rpx;
+    }
+
+    .note {
+        line-height: 36rpx;
+        color: $black;
+        text-align: center;
+    }
+
+    .btn {
+        width: 200rpx;
+        margin: 40rpx auto;
+        text-align: center;
+        line-height: 68rpx;
+        color: $theamColor;
+        background-color: #fff;
+        border: 2rpx solid;
+        border-radius: 8rpx;
+    }
+}
+
+.car-list-wrap {
+    display: block;
+    margin: -80rpx 20rpx 0;
+}
+
+.car-item {
+    display: flex;
+    align-items: center;
+    height: 186rpx;
+    padding: 0 20rpx;
+    border-bottom: 1rpx solid #efefef;
+
+    image {
+        width: 110rpx;
+        height: 110rpx;
+        margin-right: 15rpx;
+    }
+
+    .name {
+        line-height: 36rpx;
+        font-size: 30rpx;
+        color: #222;
+        font-weight: bold;
+        @include line-clip(1);
+    }
+
+    .price {
+        display: flex;
+        line-height: 38rpx;
+        font-size: 30rpx;
+        margin-top: 20rpx;
+        color: $theamColor;
+    }
+
+    .detail {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.checkbox {
+    width: 76rpx;
+}
+
+.total-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110rpx;
+    padding: 0 20rpx;
+
+    .num {
+        display: flex;
+        align-items: center;
+        font-size: 28rpx;
+        color: #222;
+    }
+
+    .btn-primary {
+        padding: 0 24rpx;
+        height: 66rpx;
+        font-size: 28rpx;
+        border-radius: 66rpx;
+        width: auto;
+        margin: 0;
+    }
+}
+
+.change-wrap {
+    padding: 0 20rpx 50rpx;
+}
+
+.tit-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 40rpx 0 20rpx;
+
+    .tit {
+        display: flex;
+        align-items: center;
+        height: 36rpx;
+        color: #222;
+        font-size: 26rpx;
+
+        &:before {
+            content: '';
+            display: block;
+            flex: none;
+            width: 6rpx;
+            height: 20rpx;
+            background-color: $theamColor;
+            margin-right: 10rpx;
+        }
+    }
+
+    .change {
+        color: $theamColor;
+        font-size: 24rpx;
+    }
+}
+
+.change-list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .item {
+        width: 345rpx;
+        background-color: #fff;
+        border-radius: 8rpx;
+        overflow: hidden;
+        margin-bottom: 20rpx;
+    }
+
+    image {
+        width: 345rpx;
+        height: 345rpx;
+    }
+
+    .detail {
+        position: relative;
+        padding: 0 10rpx 20rpx;
+    }
+
+    .name {
+        padding: 20rpx 0 7rpx;
+        line-height: 34rpx;
+        color: #222;
+        font-size: 28rpx;
+    }
+
+    .price {
+        display: flex;
+        align-items: center;
+        color: $theamColor;
+    }
+
+    .del {
+        margin-top: 4rpx;
+    }
+
+    .add {
+        position: absolute;
+        right: 10rpx;
+        bottom: 20rpx;
+    }
+}

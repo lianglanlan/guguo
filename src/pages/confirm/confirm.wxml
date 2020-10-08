@@ -1,0 +1,46 @@
+<view class="page-body">
+    <view class="column address-wrap">
+        <view class="detail-wrap">
+            <view class="user">
+                <text class="name">收货地址</text>
+            </view>
+            <view class="address">{{defaultAddress.address}} {{defaultAddress.doorNo}}</view>
+        </view>
+        <navigator url="/pages/address/list/list?source=confirm" class="btn-primary">修改</navigator>
+    </view>
+    <view class="column order-list">
+        <view class="list-wrap">
+            <view class="item" wx:for="{{confirmList}}" wx:key="id">
+                <image src="{{item.imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.name}}</view>
+                </view>
+                <view class="num">× {{item.num}}</view>
+                <view class="price">
+                    <view>￥{{item.price}}</view>
+                    <view class="del" wx:if="{{item.price !== item.originalPrice}}">
+                        ￥{{item.originalPrice}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="total">
+            <view>小计</view>
+            <view class="price">
+                <view>￥{{confirmPriceTotal}}</view>
+                <view class="del" wx:if="{{confirmPriceTotal !== confirmOrPriceTotal}}">
+                    ￥{{confirmOrPriceTotal}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="total-footer-wrap">
+        <view class="total-footer">
+            <view class="price">
+                合计：
+                <text>￥{{confirmPriceTotal}}</text>
+            </view>
+            <view class="btn-primary" bindtap="orderConfirm">确认下单</view>
+        </view>
+    </view>
+</view>

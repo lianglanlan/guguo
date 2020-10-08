@@ -1,0 +1,47 @@
+@import '../../mixin';
+
+page {
+    background-color: #fff;
+}
+
+.banner-image {
+    height: 350rpx;
+}
+
+.list-wrap {
+    padding-top: 40rpx;
+
+    .item {
+        display: flex;
+        align-items: center;
+        padding: 20rpx 40rpx;
+    }
+
+    image {
+        flex: none;
+        width: 120rpx;
+        height: 120rpx;
+        margin-right: 24rpx;
+        border-radius: 8rpx;
+        background-color: $gray;
+    }
+
+    .detail {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .tit {
+        line-height: 42rpx;
+        font-size: 32rpx;
+        font-weight: bold;
+        color: #222;
+    }
+
+    .desc {
+        line-height: 36rpx;
+        font-size: 26rpx;
+        color: #666;
+        @include line-clip(2);
+    }
+}

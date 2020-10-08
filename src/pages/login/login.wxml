@@ -1,0 +1,13 @@
+<view class="page-body">
+    <image src="https://img.alicdn.com/imgextra/i1/933849714/TB225CHyQCWBuNjy0FaXXXUlXXa_!!933849714.jpg" class="banner-img"></image>
+    <form class="form-wrap" bindsubmit="formSubmit">
+        <view class="title">登录</view>
+        <input type="text" placeholder="请输入账号" class="ipt" name="username"></input>
+        <input type="text" placeholder="请输入密码" password class="ipt" name="password"></input>
+        <button formType="submit" class="btn-primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+            登录
+        </button>
+    </form>
+    <view class="note note01">若您找不到正确的账号密码</view>
+    <view class="note note02">请致电：010-61731277 进行查询与修改</view>
+</view>

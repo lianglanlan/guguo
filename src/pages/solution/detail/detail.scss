@@ -1,0 +1,27 @@
+@import '../../../mixin';
+
+page {
+    background-color: #fff;
+}
+
+.page-body {
+    color: #222;
+    padding: 0 30rpx;
+    line-height: 60rpx;
+    font-size: 36rpx;
+
+    view {
+        margin: 34rpx 0;
+    }
+
+    image {
+        margin: 34rpx 0;
+        width: 100%;
+    }
+}
+
+.tit {
+    font-size: 42rpx;
+    line-height: 68rpx;
+    font-weight: bold;
+}

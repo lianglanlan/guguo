@@ -1,0 +1,5 @@
+<view class="empty-wrap">
+    <image src="https://xcx2k.sogoucdn.com/images/default/empty.png"></image>
+    <view class="note">您还没下过单哦~</view>
+    <view class="btn-primary">去点单</view>
+</view>

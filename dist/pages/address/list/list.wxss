@@ -1,0 +1,87 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.empty-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 200rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-add-wrap {
+  height: 200rpx;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 40rpx;
+  left: 40rpx;
+  right: 40rpx;
+  height: 100rpx;
+  justify-content: center;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+}
+
+.address-list-wrap {
+  padding: 0 30rpx;
+  margin-top: 15rpx;
+  background-color: #fff;
+}
+
+.address-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.address-con {
+  flex: 1;
+  min-width: 0;
+  color: #222;
+  padding-right: 30rpx;
+}
+
+.address-con .user {
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+
+.address-con .user text {
+  margin-right: 10rpx;
+}
+
+.address-con .address {
+  font-size: 26rpx;
+  line-height: 46rpx;
+}
+
+.btn-edit {
+  flex: none;
+  padding: 0 30rpx;
+  border-left: 2rpx solid #f0f0f0;
+  font-size: 30rpx;
+  line-height: 96rpx;
+}
+
+.address-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.icon-default {
+  flex: none;
+  padding: 0 8rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #d6ab7e;
+  background-color: #faf5ef;
+  margin-right: 10rpx;
+}

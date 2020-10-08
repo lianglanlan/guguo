@@ -1,0 +1,45 @@
+<view class="page-body">
+    <form bindsubmit="formSubmit">
+        <view class="input-wrap">
+            <view class="input-item">
+                <view class="name">联系人</view>
+                <input type="text" placeholder="请输入收货人的姓名" placeholder-class="input-placeholder" value="{{tempAddress.name}}" name="name"></input>
+            </view>
+            <view class="input-item">
+                <view class="name">性别</view>
+                <radio-group name="gender">
+                    <label class="radio">
+                        <radio value="0" checked="{{tempAddress.gender!=1}}" />
+                        先生
+                    </label>
+                    <label class="radio">
+                        <radio value="1" checked="{{tempAddress.gender==1}}" />
+                        女士
+                    </label>
+                </radio-group>
+            </view>
+            <view class="input-item">
+                <view class="name">手机号</view>
+                <input type="number" placeholder="请填写收货手机号码" placeholder-class="input-placeholder" value="{{tempAddress.phone}}" name="phone"></input>
+            </view>
+            <view class="input-item" bindtap="map">
+                <view class="name">收货地址</view>
+                <input type="number" placeholder="请填写收货地址" placeholder-class="input-placeholder" value="{{tempAddress.address || chooseAddress}}" name="address" disabled="{{true}}"></input>
+                <view class="icon-arrow">></view>
+            </view>
+            <view class="input-item">
+                <view class="name">门牌号</view>
+                <input type="number" placeholder="例：B座6楼602室" placeholder-class="input-placeholder" value="{{tempAddress.doorNo}}" name="doorNo"></input>
+            </view>
+            <view class="input-item">
+                <label>
+                    <checkbox-group name="isDefault">
+                        <checkbox checked="{{tempAddress.isDefault || isFirst}}" value="1"></checkbox>
+                        设为默认地址
+                    </checkbox-group>
+                </label>
+            </view>
+        </view>
+        <button formType="submit" class="btn-primary btn-save">保存</button>
+    </form>
+</view>

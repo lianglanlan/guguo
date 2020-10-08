@@ -1,0 +1,61 @@
+<view class="page-body">
+    <view class="bg"></view>
+    <view class="column empty-box" wx:if="{{!list.length}}">
+        <view class="empty-wrap">
+            <view class="note">您的购物车有点寂寞</view>
+            <navigator class="btn" open-type="switchTab" url="/pages/index/index">去加购物车</navigator>
+        </view>
+    </view>
+    <form class="column car-list-wrap" wx:if="{{list.length}}">
+        <view class="column-tit">购物车</view>
+        <checkbox-group bindchange="carChange">
+            <view class="car-item" wx:for="{{list}}" wx:key="*this">
+                <checkbox class="checkbox" checked="{{item.checked}}" data-index="{{index}}" bindtap="checkboxTap"></checkbox>
+                <image src="{{item.imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.name}}</view>
+                    <view class="price">
+                        <view>￥{{item.price}}</view>
+                        <view class="del" wx:if="{{item.originalPrice && item.price !== item.originalPrice}}">
+                            ￥{{item.originalPrice}}
+                        </view>
+                    </view>
+                </view>
+                <numtool bindnumadd="numadd" bindnumless="numless" num="{{item.num}}" data-index="{{index}}" pop="true"></numtool>
+            </view>
+        </checkbox-group>
+        <view class="total-wrap">
+            <view class="num">
+                <view>应付合计￥{{priceTotal}}</view>
+                <view class="del" wx:if="{{orPriceTotal && priceTotal !== orPriceTotal }}">
+                    ￥{{orPriceTotal}}
+                </view>
+            </view>
+            <view class="btn-primary {{btnDisabled?'disabled':''}}" disabled="{{btnDisabled}}" bindtap="order">
+                去下单
+            </view>
+        </view>
+    </form>
+    <view class="change-wrap">
+        <view class="tit-wrap">
+            <view class="tit">为你推荐</view>
+            <!-- <view class="change">换一批</view> -->
+        </view>
+        <view class="change-list-wrap">
+            <view class="item" wx:for="{{recommendList}}" bindtap="productTap" data-detail="{{item}}" wx:key="id">
+                <image src="{{item.imgSrc}}"></image>
+                <view class="detail">
+                    <view class="name">{{item.name}}</view>
+                    <view class="price">
+                        <view>￥{{item.price}}</view>
+                        <view class="del" wx:if="{{item.price !== item.originalPrice}}">
+                            ￥{{item.originalPrice}}
+                        </view>
+                    </view>
+                    <view class="add" catchtap="itemAddCar" data-car-item="{{item}}">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <detail detail="{{detail}}" bindaddCar="detailAddCar"></detail>
+</view>
