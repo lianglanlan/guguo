@@ -33,6 +33,11 @@ Page({
             })
         }
     },
+    onHide() {
+        this.setData({
+            detail: false
+        })
+    },
     searchTap() {
         this.setData({
             searchHidden: false,

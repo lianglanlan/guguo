@@ -6,11 +6,20 @@ Page({
         curPage: 0,
         list: []
     },
+
     onLoad() {
+        this.pageInit()
         this.getData()
     },
     onShow: function () {
+        this.pageInit()
         this.getData()
+    },
+    pageInit() {
+        this.setData({
+            curPage: 0,
+            list: []
+        })
     },
     onReachBottom() {
         if (!this.data.hasNext) return	//没有数据了
