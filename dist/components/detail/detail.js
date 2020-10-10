@@ -40,6 +40,7 @@ Component({
             detail.num ? '' : detail.num = 1
             app.addCar(detail)
             this.triggerEvent('addCar')
+            this.detailClose()
         },
         numChange(e) {
             const { detail } = this.data

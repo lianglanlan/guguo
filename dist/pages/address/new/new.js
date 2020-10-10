@@ -12,7 +12,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad() {
         const { tempAddress, isFirst } = app.globalData
         if (tempAddress) {
             this.setData({
@@ -30,7 +30,7 @@ Page({
         const location = chooseLocation.getLocation()
         if (location) {
             const tempAddress = this.data.tempAddress
-            const chooseAddress = location.address
+            const chooseAddress = location.address + location.name
             if (tempAddress) {
                 tempAddress.address = chooseAddress
                 this.setData({
@@ -75,26 +75,6 @@ Page({
             }
         }
     },
-    // 根据经纬度，设置数据
-    updateLocation(res) {
-        console.log(res)
-        let { latitude: lat, longitude: lon } = res
-        let data = {
-            lat,
-            lon
-        }
-        this.setData(data)
-    },
-    // 微信api，获取经纬度
-    getLocation() {
-        wx.getLocation({
-            type: 'gcj02',
-            success: this.updateLocation,
-            fail: (e) => {
-                console.log(e)
-            }
-        })
-    },
     map() {
         const key = QQMapKey; //使用在腾讯位置服务申请的key
         const referer = '谷果'; //调用插件的app的名称
@@ -113,5 +93,9 @@ Page({
                 console.log(e)
             }
         })
+    },
+    onUnload() {
+        // 页面卸载时设置插件选点数据为null，防止再次进入页面，geLocation返回的是上次选点结果
+        chooseLocation.setLocation(null)
     }
 })

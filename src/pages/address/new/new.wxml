@@ -24,12 +24,12 @@
             </view>
             <view class="input-item" bindtap="map">
                 <view class="name">收货地址</view>
-                <input type="number" placeholder="请填写收货地址" placeholder-class="input-placeholder" value="{{tempAddress.address || chooseAddress}}" name="address" disabled="{{true}}"></input>
+                <input placeholder="请填写收货地址" placeholder-class="input-placeholder" value="{{tempAddress.address || chooseAddress}}" name="address" disabled="{{true}}"></input>
                 <view class="icon-arrow">></view>
             </view>
             <view class="input-item">
                 <view class="name">门牌号</view>
-                <input type="number" placeholder="例：B座6楼602室" placeholder-class="input-placeholder" value="{{tempAddress.doorNo}}" name="doorNo"></input>
+                <input placeholder="例：B座6楼602室" placeholder-class="input-placeholder" value="{{tempAddress.doorNo}}" name="doorNo"></input>
             </view>
             <view class="input-item">
                 <label>
