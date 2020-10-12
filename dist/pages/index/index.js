@@ -153,19 +153,15 @@ Page({
         const { cateList } = this.data
         const curCate = cateList.find((item) => {
             if (item.id == id) {
-                item.isSolution = true
                 return item
             }
         })
         this.setData({
             curCate,
-            cateList
-        })
-
-        this.setData({
-            id: 'soluntionCate'
+            id: `_${id}`
         })
     },
+
     loadNextPage() {
         if (!this.data.hasNext) return	//没有数据了
         const { id } = this.data.curCate
@@ -250,6 +246,21 @@ Page({
             //有messageUrl
             wx.navigateTo({
                 url: `/pages/solution/detail/detail?url=${swiper.messageUrl}`
+            })
+        } else if (swiper.cateId) {
+            const id = swiper.cateId
+            //获取列表数据
+            this.changeCate(id)
+            //设置curCate
+            const { cateList } = this.data
+            const curCate = cateList.find((item) => {
+                if (item.id == id) {
+                    return item
+                }
+            })
+            this.setData({
+                curCate,
+                id: `_${id}`
             })
         }
     },

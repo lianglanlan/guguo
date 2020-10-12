@@ -64,7 +64,7 @@
     <view class="column-wrap">
         <view class="sidebar-wrap">
             <scroll-view scroll-y="true" scroll-into-view="{{id}}">
-                <view wx:for="{{cateList}}" wx:key="*this" class="sidebar-item {{item.id === curCate.id ?'cur':''}}" data-cur-cate="{{item}}" bindtap="cateTap" id="{{item.isSolution?'soluntionCate':''}}">
+                <view wx:for="{{cateList}}" wx:key="*this" class="sidebar-item {{item.id === curCate.id ?'cur':''}}" data-cur-cate="{{item}}" bindtap="cateTap" id="_{{item.id}}">
                     {{item.cateName}}
                 </view>
             </scroll-view>
