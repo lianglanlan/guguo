@@ -237,7 +237,6 @@ Page({
     //横滑模块点击
     swiperTap(e) {
         const { swiper } = e.currentTarget.dataset
-        console.log(swiper)
         if (swiper.product) { //展示详情
             this.setData({
                 detail: swiper.product

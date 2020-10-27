@@ -18,8 +18,11 @@
 }
 
 .num {
-    width: 70rpx;
+    flex: none;
+    width: 140rpx;
     text-align: center;
+    border: 1rpx solid $gray;
+    margin: 0 10rpx;
 }
 
 .add {

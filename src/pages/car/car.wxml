@@ -9,7 +9,7 @@
     <form class="column car-list-wrap" wx:if="{{list.length}}">
         <view class="column-tit">购物车</view>
         <checkbox-group bindchange="carChange">
-            <view class="car-item" wx:for="{{list}}" wx:key="*this">
+            <view class="car-item" wx:for="{{list}}" wx:key="id">
                 <checkbox class="checkbox" checked="{{item.checked}}" data-index="{{index}}" bindtap="checkboxTap"></checkbox>
                 <image src="{{item.imgSrc}}"></image>
                 <view class="detail">
@@ -21,7 +21,7 @@
                         </view>
                     </view>
                 </view>
-                <numtool bindnumadd="numadd" bindnumless="numless" num="{{item.num}}" data-index="{{index}}" pop="true"></numtool>
+                <numtool bindnumadd="numadd" bindnumless="numless" bindnumchange="numInputChange" num="{{item.num}}" data-index="{{index}}" pop="true"></numtool>
             </view>
         </checkbox-group>
         <view class="total-wrap">

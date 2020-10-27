@@ -35,6 +35,22 @@ Component({
                 })
             }
             this.triggerEvent('numless', { num: this.data.num, lessBeforeNum })
+        },
+        bindKeyInput: function (e) {
+            let num = e.detail.value
+            if (num < 1) {
+                wx.showModal({
+                    content: '数量不能小于1哦',
+                    showCancel: false
+                })
+
+                num = 1
+            }
+
+            this.setData({
+                num
+            })
+            this.triggerEvent('numchange', { num: this.data.num })
         }
     }
 })

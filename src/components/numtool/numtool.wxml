@@ -1,5 +1,6 @@
 <view class="tool-wrap">
     <view class="less" bindtap="less">-</view>
-    <view class="num">{{num}}</view>
+    <!-- <view class="num">{{num}}</view> -->
+    <input type="number" value="{{num}}" class="num" bindblur="bindKeyInput" maxlength="6"></input>
     <view class="add" bindtap="add">+</view>
 </view>

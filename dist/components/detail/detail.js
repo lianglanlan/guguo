@@ -54,6 +54,9 @@ Component({
         },
         numadd(e) {
             this.numChange(e)
+        },
+        numchange(e) {
+            this.numChange(e)
         }
     }
 })

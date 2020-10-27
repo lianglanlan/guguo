@@ -192,6 +192,9 @@ Page({
     numadd(e) {
         this.numChange(e)
     },
+    numInputChange(e) {
+        this.numChange(e)
+    },
     //获取为你推荐数据
     async getRecommend() {
         try {

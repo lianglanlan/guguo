@@ -33,7 +33,7 @@
                         ￥{{detail.originalPrice}}
                     </view>
                 </view>
-                <numtool bindnumadd="numadd" bindnumless="numless" num="{{detail.num || 1}}"></numtool>
+                <numtool bindnumadd="numadd" bindnumless="numless" bindnumchange="numchange" num="{{detail.num || 1}}"></numtool>
             </view>
             <view class="pop-btn" bindtap="detailAddCar">加入购物袋</view>
         </view>
