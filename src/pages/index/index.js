@@ -51,7 +51,8 @@ Page({
         this.setData({
             searchHidden: true,
             searchValue: '',
-            search: {}
+            search: {},
+            deleteHidden: true
         })
     },
     //获取首页数据
@@ -202,7 +203,8 @@ Page({
     },
     deleteInput() {
         this.setData({
-            searchValue: ''
+            searchValue: '',
+            deleteHidden: true
         })
     },
     searchItemTap(e) {
@@ -223,7 +225,6 @@ Page({
         }
         //3.判断数量
         if (historyList.length > 8) {
-            console.log(1)
             historyList.pop()
         }
         //4.加新item

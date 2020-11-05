@@ -4,12 +4,6 @@ const { default: api } = require("../../libs/api")
 const app = getApp()
 
 Page({
-
-    /**
-     * 页面的初始数据
-     */
-    data: {
-    },
     onLoad(options) {
         this.getRecommend()
     },
@@ -157,7 +151,6 @@ Page({
         })
     },
     numless(e) {
-        this.numChange(e)
         const { num, lessBeforeNum } = e.detail
         const { index } = e.currentTarget.dataset
         let { list, length, orPriceTotal, priceTotal, } = this.data
@@ -166,9 +159,12 @@ Page({
                 content: '确定不要了吗',
                 success: (res) => {
                     if (res.confirm) {
-                        //修改价格
-                        priceTotal -= list[index].price
-                        orPriceTotal -= list[index].originalPrice
+                        //判断是否选中
+                        if (list[index].checked) {
+                            //修改价格
+                            priceTotal -= list[index].price
+                            orPriceTotal -= list[index].originalPrice
+                        }
 
                         //从list中删除商品
                         list.splice(index, 1)
@@ -180,13 +176,22 @@ Page({
                             length
                         })
                         app.globalData.carList = { list, length, priceTotal, orPriceTotal }
-                        wx.setTabBarBadge({
-                            index: 1,
-                            text: app.globalData.carList.length.toString()
-                        })
+                        //如果购物车length大于0 ，tabbar添加角标
+                        if (length > 0) {
+                            wx.setTabBarBadge({
+                                index: 1,
+                                text: app.globalData.carList.length.toString()
+                            })
+                        } else { //小于等于0，清除角标
+                            wx.removeTabBarBadge({
+                                index: 1
+                            })
+                        }
                     }
                 }
             })
+        } else {
+            this.numChange(e)
         }
     },
     numadd(e) {
