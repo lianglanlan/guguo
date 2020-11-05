@@ -237,8 +237,12 @@ Page({
                         wx.navigateTo({
                             url: '/pages/confirm/confirm'
                         })
-                        app.globalData.defaultAddress = list[0]
-
+                        app.globalData.defaultAddress = list.find(item => {
+                            if (item.isDefault === 1) {
+                                return item
+                            }
+                        })
+                        app.globalData.isFirst = false
                     } else {
                         app.globalData.isFirst = true
                         wx.navigateTo({
