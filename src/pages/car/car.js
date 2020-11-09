@@ -32,7 +32,7 @@ Page({
                     length,
                     priceTotal: Math.round(priceTotal * 100) / 100
                 })
-                app.globalData.carList = { list, length, priceTotal }
+                app.globalData.carList = { ...carList, list, length, priceTotal }
                 app.globalData.orderAgain = ''
             }
         } else if (carList) {
@@ -54,7 +54,7 @@ Page({
                     orPriceTotal: Math.round(orPriceTotal * 100) / 100,
                     priceTotal: Math.round(priceTotal * 100) / 100
                 })
-                app.globalData.carList = { list, length, priceTotal, orPriceTotal }
+                app.globalData.carList = { ...carList, list, length, priceTotal, orPriceTotal }
             }
         }
         if (app.globalData.carList && app.globalData.carList.length) {

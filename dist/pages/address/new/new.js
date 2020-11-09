@@ -19,8 +19,7 @@ Page({
                 tempAddress,
             })
             app.globalData.tempAddress = ''
-        }
-        if (isFirst) {
+        } else if (isFirst) {
             this.setData({
                 isFirst
             })
@@ -56,7 +55,6 @@ Page({
                 //判断是否有id值，如果有，下面接口需传入
                 const { tempAddress } = this.data
                 isDefault = isDefault[0] ? 1 : 0
-                console.log(isDefault)
                 let id = ''
                 if (tempAddress) {
                     id = tempAddress.id
