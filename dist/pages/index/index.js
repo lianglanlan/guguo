@@ -208,8 +208,6 @@ Page({
         })
     },
     searchItemTap(e) {
-        //关闭搜索页
-        this.searchCancle()
         //查看详情
         const { detail } = e.currentTarget.dataset
         this.setData({ detail })

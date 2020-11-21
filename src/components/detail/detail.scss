@@ -8,6 +8,10 @@
     max-height: 80%;
     overflow: hidden;
     color: #222;
+
+    scroll-view {
+        height: 400rpx;
+    }
 }
 
 .pop-swiper-box {
@@ -134,8 +138,4 @@
         color: #b7b7b7;
         border-radius: 4rpx;
     }
-}
-
-scroll-view {
-    height: 400rpx;
 }
