@@ -21,7 +21,12 @@
                         </view>
                     </view>
                 </view>
-                <numtool bindnumadd="numadd" bindnumless="numless" bindnumchange="numInputChange" num="{{item.num}}" data-index="{{index}}" pop="true"></numtool>
+                <view>
+                    <numtool bindnumadd="numadd" bindnumless="numless" bindnumchange="numInputChange" num="{{item.num}}" data-index="{{index}}" pop="true"></numtool>
+                    <view class="btn-primary btn-delete" data-index="{{index}}" bindtap="delete">
+                        删除
+                    </view>
+                </view>
             </view>
         </checkbox-group>
         <view class="total-wrap">

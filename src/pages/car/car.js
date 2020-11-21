@@ -153,44 +153,8 @@ Page({
     },
     numless(e) {
         const { num, lessBeforeNum } = e.detail
-        const { index } = e.currentTarget.dataset
-        let { list, length, orPriceTotal, priceTotal, } = this.data
         if (lessBeforeNum == 1) {
-            wx.showModal({
-                content: '确定不要了吗',
-                success: (res) => {
-                    if (res.confirm) {
-                        //判断是否选中
-                        if (list[index].checked) {
-                            //修改价格
-                            priceTotal -= list[index].price
-                            orPriceTotal -= list[index].originalPrice
-                        }
-
-                        //从list中删除商品
-                        list.splice(index, 1)
-                        length -= 1
-                        this.setData({
-                            list,
-                            orPriceTotal: Math.round(orPriceTotal * 100) / 100,
-                            priceTotal: Math.round(priceTotal * 100) / 100,
-                            length
-                        })
-                        app.globalData.carList = { list, length, priceTotal, orPriceTotal }
-                        //如果购物车length大于0 ，tabbar添加角标
-                        if (length > 0) {
-                            wx.setTabBarBadge({
-                                index: 1,
-                                text: app.globalData.carList.length.toString()
-                            })
-                        } else { //小于等于0，清除角标
-                            wx.removeTabBarBadge({
-                                index: 1
-                            })
-                        }
-                    }
-                }
-            })
+            this.delete(e)
         } else {
             this.numChange(e)
         }
@@ -200,6 +164,46 @@ Page({
     },
     numInputChange(e) {
         this.numChange(e)
+    },
+    delete(e) {
+        const { index } = e.currentTarget.dataset
+        let { list, length, orPriceTotal, priceTotal, } = this.data
+        wx.showModal({
+            content: '确定不要了吗',
+            success: (res) => {
+                if (res.confirm) {
+                    let deleteItem = list[index]
+                    //判断是否选中
+                    if (deleteItem.checked) {
+                        //修改价格
+                        priceTotal -= deleteItem.price * deleteItem.num
+                        orPriceTotal -= deleteItem.originalPrice * deleteItem.num
+                    }
+
+                    //从list中删除商品
+                    list.splice(index, 1)
+                    length -= deleteItem.num
+                    this.setData({
+                        list,
+                        orPriceTotal: Math.round(orPriceTotal * 100) / 100,
+                        priceTotal: Math.round(priceTotal * 100) / 100,
+                        length
+                    })
+                    app.globalData.carList = { list, length, priceTotal, orPriceTotal }
+                    //如果购物车length大于0 ，tabbar添加角标
+                    if (length > 0) {
+                        wx.setTabBarBadge({
+                            index: 1,
+                            text: app.globalData.carList.length.toString()
+                        })
+                    } else { //小于等于0，清除角标
+                        wx.removeTabBarBadge({
+                            index: 1
+                        })
+                    }
+                }
+            }
+        })
     },
     //获取为你推荐数据
     async getRecommend() {
