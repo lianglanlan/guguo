@@ -73,7 +73,7 @@
 }
 
 .pop-price-wrap {
-    border: 1rpx #ccc solid;
+    border-top: 1rpx #f1f1f1 solid;
     padding: 0 40rpx 20rpx;
 }
 
@@ -134,4 +134,8 @@
         color: #b7b7b7;
         border-radius: 4rpx;
     }
+}
+
+scroll-view {
+    height: 400rpx;
 }

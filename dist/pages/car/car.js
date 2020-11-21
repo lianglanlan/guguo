@@ -30,7 +30,8 @@ Page({
                 this.setData({
                     list,
                     length,
-                    priceTotal: Math.round(priceTotal * 100) / 100
+                    priceTotal: Math.round(priceTotal * 100) / 100,
+                    orPriceTotal: Math.round(priceTotal * 100) / 100    //与现价设置一致
                 })
                 app.globalData.carList = { ...carList, list, length, priceTotal }
                 app.globalData.orderAgain = ''
