@@ -26,7 +26,7 @@ App({
         })
     },
     globalData: {
-        userId: wx.getStorageSync('loginInfo'),
+        userId: wx.getStorageSync('loginInfo').userid,
         carList: {
             list: [],
             length: 0
