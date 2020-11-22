@@ -6,7 +6,7 @@ page {
 
 .page-body {
     color: #222;
-    padding: 0 30rpx;
+    padding: 0 30rpx 30rpx;
     line-height: 60rpx;
     font-size: 36rpx;
 
@@ -15,7 +15,7 @@ page {
     }
 
     image {
-        margin: 34rpx 0;
+        // margin: 34rpx 0;
         width: 100%;
     }
 }

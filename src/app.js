@@ -1,11 +1,29 @@
+import api from './libs/api.js'
+
 //app.js
 App({
     onLaunch() {
         this.getSystemInfo()
+    },
+    async onShow() {
+        //验证是否登录
         const loginInfo = wx.getStorageSync('loginInfo')
-        if (loginInfo) {
-            this.globalData.userId = loginInfo.userid
+        if (loginInfo) { //有登录缓存信息
+            //没有过期
+            if (Date.now() - loginInfo.date < 7 * 24 * 60 * 60 * 1000) {
+                //登录验证
+                const { data } = await api.login(loginInfo.username, loginInfo.password)
+                if (data && data.status === 'succ') {    //登录成功，进入首页
+                    wx.switchTab({
+                        url: '/pages/index/index',
+                    })
+                    return
+                }
+            }
         }
+        wx.navigateTo({
+            url: '/pages/login/login'
+        })
     },
     globalData: {
         userId: wx.getStorageSync('loginInfo'),

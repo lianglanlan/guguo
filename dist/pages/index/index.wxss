@@ -370,3 +370,22 @@ swiper {
   color: #69696c;
   padding: 0 24rpx;
 }
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  padding: 18PX 14PX;
+  transform: translateY(-50%);
+  margin-top: -2PX;
+}
+
+.back:before {
+  content: '';
+  display: block;
+  width: 11PX;
+  height: 11PX;
+  border-top: 2PX solid #000;
+  border-left: 2PX solid #000;
+  transform: rotate(-45deg);
+}

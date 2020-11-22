@@ -28,7 +28,7 @@
             <view class="btn-plain btn-cancle" wx:if="{{item.status === 0}}" bindtap="orderCancle" data-order-id="{{item.orderId}}">
                 取消订单
             </view>
-            <view class="btn-plain btn-cancle" wx:if="{{item.status === 1}}" bindtap="orderAgain" data-order-again="{{item}}">
+            <view class="btn-plain btn-cancle" wx:if="{{item.status === 1 || item.status === 3 || item.status === 4}}" bindtap="orderAgain" data-order-again="{{item}}">
                 再来一单
             </view>
             <navigator url="/pages/order/detail/detail" class="btn-primary btn-cancle" bindtap="detail" data-order-detail="{{item}}">

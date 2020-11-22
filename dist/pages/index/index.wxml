@@ -3,7 +3,8 @@
         <view class="navbar-wrap {{className}}">
             <view class="status-bar" style="height: {{statusBarHeight}}px"></view>
             <view class="navbar-content">
-                <view class="search" bindtap="searchTap"></view>
+                <view class="search" bindtap="searchTap" wx:if="{{searchHidden}}"></view>
+                <view class="back" wx:else bind:tap="searchCancle"></view>
                 <view class="tit">谷果</view>
             </view>
         </view>

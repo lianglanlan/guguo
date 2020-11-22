@@ -8,6 +8,7 @@ Page({
     },
 
     onLoad() {
+        wx.stopPullDownRefresh()
         this.pageInit()
         this.getData()
     },
@@ -18,7 +19,8 @@ Page({
     pageInit() {
         this.setData({
             curPage: 0,
-            list: []
+            list: [],
+            hasNext: ''
         })
     },
     onReachBottom() {
@@ -119,5 +121,7 @@ Page({
             }
         })
     },
-
+    onPullDownRefresh() {
+        this.onLoad()
+    }
 })
