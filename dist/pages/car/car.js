@@ -263,5 +263,27 @@ Page({
     },
     detailAddCar() {
         this.updateCar()
+    },
+    deleteAll() {
+        let { list, length, orPriceTotal, priceTotal, } = this.data
+        wx.showModal({
+            content: '确定全部删除吗',
+            success: (res) => {
+                if (res.confirm) {
+                    const list = [], orPriceTotal = 0, priceTotal = 0, length = 0
+
+                    this.setData({
+                        list,
+                        orPriceTotal,
+                        priceTotal,
+                        length
+                    })
+                    app.globalData.carList = { list, length, priceTotal, orPriceTotal }
+                    wx.removeTabBarBadge({
+                        index: 1
+                    })
+                }
+            }
+        })
     }
 })

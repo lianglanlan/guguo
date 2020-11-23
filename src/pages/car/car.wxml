@@ -7,7 +7,10 @@
         </view>
     </view>
     <form class="column car-list-wrap" wx:if="{{list.length}}">
-        <view class="column-tit">购物车</view>
+        <view class="column-tit">
+            <view>购物车</view>
+            <view class="btn-plain btn-deleteall" bindtap="deleteAll">全部删除</view>
+        </view>
         <checkbox-group bindchange="carChange">
             <view class="car-item" wx:for="{{list}}" wx:key="id">
                 <checkbox class="checkbox" checked="{{item.checked}}" data-index="{{index}}" bindtap="checkboxTap"></checkbox>
