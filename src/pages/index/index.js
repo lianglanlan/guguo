@@ -264,6 +264,5 @@ Page({
     },
     historyTap(e) {
         this.productTap(e)
-        this.searchCancle()
     }
 })
