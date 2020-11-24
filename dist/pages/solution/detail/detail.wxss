@@ -16,9 +16,20 @@ page {
 }
 
 .con {
-  margin: 34rpx 0;
+  margin-bottom: 34rpx;
 }
 
 .pic {
+  margin: 34rpx 0;
+  display: block;
   width: 100%;
+}
+
+.pic.mini {
+  width: auto;
+  margin: 34rpx auto 34rpx;
+}
+
+.center {
+  text-align: center;
 }
