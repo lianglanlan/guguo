@@ -1,5 +1,5 @@
 <web-view src="{{url}}" wx:if="{{url}}"></web-view>
 <view class="page-body" wx:elif="{{htmlContent.title}}">
     <view class="tit">{{htmlContent.title}}</view>
-    {{htmlContent.content}}
+    <rich-text nodes="{{htmlContent.content}}"></rich-text>
 </view>

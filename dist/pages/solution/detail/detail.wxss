@@ -9,16 +9,16 @@ page {
   font-size: 36rpx;
 }
 
-.page-body view {
-  margin: 34rpx 0;
-}
-
-.page-body image {
-  width: 100%;
-}
-
 .tit {
   font-size: 42rpx;
   line-height: 68rpx;
   font-weight: bold;
+}
+
+.con {
+  margin: 34rpx 0;
+}
+
+.pic {
+  width: 100%;
 }
