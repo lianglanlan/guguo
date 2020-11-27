@@ -27,7 +27,11 @@ Page({
                     })
                     app.globalData.userId = loginInfo.userid
                 } else {
-                    app.toast('您输入的账号密码有误，请重新输入哦~')
+                    if (data && data.message === '用户失效，请联系管理员') {
+                        app.toast('您的账号已过期，请联系客服~')
+                    } else {
+                        app.toast('您输入的账号密码有误，请重新输入哦~')
+                    }
                 }
 
             } catch (error) {

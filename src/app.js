@@ -4,8 +4,12 @@ import api from './libs/api.js'
 App({
     onLaunch() {
         this.getSystemInfo()
+        this.checklogin()
     },
-    async onShow() {
+    onShow() {
+        this.checklogin()
+    },
+    async checklogin() {
         //验证是否登录
         const loginInfo = wx.getStorageSync('loginInfo')
         if (loginInfo) { //有登录缓存信息
